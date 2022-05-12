@@ -24,7 +24,7 @@ export default function Home() {
 			const config = {
 				headers: {
 					'Content-Type': 'application/json',
-					authorization: JSON.parse(auth.token),
+					authorization: auth.token,
 				},
 			};
 
