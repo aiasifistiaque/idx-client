@@ -13,13 +13,14 @@ export default function Home() {
 	const router = useRouter();
 	const logout = () => {
 		localStorage.setItem(tokenName, undefined);
-		//localStorage.removeItem(tokenName);
+		localStorage.removeItem(tokenName);
 
 		router.push('/login');
 	};
-	const [dat, setData] = useState();
+	const [dat, setData] = useState({ name: '', email: '' });
 
 	const getInfo = async () => {
+		console.log(localStorage.getItem(tokenName));
 		try {
 			const config = {
 				headers: {
@@ -41,7 +42,7 @@ export default function Home() {
 	useEffect(() => {
 		const tkn = localStorage.getItem(tokenName);
 		if (tkn == 'undefined') {
-			//router.push('/login');
+			router.push('/login');
 		}
 	}, []);
 	useEffect(() => {
@@ -56,11 +57,19 @@ export default function Home() {
 				justifyContent: 'center',
 				height: '100vh',
 				flexDirection: 'column',
+				background: 'whitesmoke',
 			}}>
 			<h2>Login Successful</h2>
 			<p>{JSON.stringify(dat)}</p>
 			{dat && (
-				<div>
+				<div
+					style={{
+						border: '1px solid rgba(0,0,0,.1)',
+						padding: '16px 128px',
+						margin: '32px 0',
+						borderRadius: 8,
+						backgroundColor: 'White',
+					}}>
 					<Item title='Name'>{dat.name}</Item>{' '}
 					<Item title='Email'>{dat.email}</Item>
 				</div>
@@ -72,9 +81,13 @@ export default function Home() {
 
 const Item = ({ title, children }) => {
 	return (
-		<div>
-			<h6>{title}</h6>
-			<p>{children}</p>
+		<div style={{ marginTop: 8, marginBottom: 16, display: 'flex' }}>
+			<div style={{ flex: 1, marginRight: 32 }}>
+				<h6>{title}:</h6>
+			</div>
+			<div style={{ flex: 1 }}>
+				<p>{children}</p>
+			</div>
 		</div>
 	);
 };
