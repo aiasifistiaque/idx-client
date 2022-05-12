@@ -13,7 +13,6 @@ export default function Home() {
 	const router = useRouter();
 	const logout = () => {
 		localStorage.setItem(tokenName, undefined);
-		localStorage.removeItem(tokenName);
 
 		router.push('/login');
 	};
@@ -25,18 +24,14 @@ export default function Home() {
 			const config = {
 				headers: {
 					'Content-Type': 'application/json',
-					authorization: auth.token,
+					authorization: JSON.parse(auth.token),
 				},
 			};
 
-			const { data } = await axios.get(
-				`${lib.api.backend}/user/self`,
-				{},
-				config
-			);
+			const { data } = await axios.get(`${lib.api.backend}/user/self`, config);
 			setData(data);
 		} catch (error) {
-			console.log(error);
+			console.log(error.message);
 		}
 	};
 	useEffect(() => {
@@ -60,17 +55,18 @@ export default function Home() {
 				background: 'whitesmoke',
 			}}>
 			<h2>Login Successful</h2>
-			<p>{JSON.stringify(dat)}</p>
+
 			{dat && (
 				<div
 					style={{
 						border: '1px solid rgba(0,0,0,.1)',
-						padding: '16px 128px',
+						padding: '16px 64px',
 						margin: '32px 0',
 						borderRadius: 8,
 						backgroundColor: 'White',
 					}}>
-					<Item title='Name'>{dat.name}</Item>{' '}
+					<Item title='Id'>{dat._id}</Item>
+					<Item title='Name'>{dat.name}</Item>
 					<Item title='Email'>{dat.email}</Item>
 				</div>
 			)}
@@ -82,10 +78,10 @@ export default function Home() {
 const Item = ({ title, children }) => {
 	return (
 		<div style={{ marginTop: 8, marginBottom: 16, display: 'flex' }}>
-			<div style={{ flex: 1, marginRight: 32 }}>
+			<div style={{ flex: 1, minWidth: 200, marginRight: 32 }}>
 				<h6>{title}:</h6>
 			</div>
-			<div style={{ flex: 1 }}>
+			<div style={{ flex: 1, minWidth: 200 }}>
 				<p>{children}</p>
 			</div>
 		</div>
