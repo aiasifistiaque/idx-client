@@ -1,0 +1,15 @@
+//@at-root
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+$color-primary: #0078e7;
+$color-text: #404040;
+$color-border: rgba(#483d8b, 0.1);
+$background-color: #f7f7f7;
+$color-danger: #ff3152;
+$shadow-primary: 0 22px 40px rgba(#483d8b, 0.12);
+$color-success: #00ff99;
+$color-black: black;
+$container-radius: 10px;
+
+@import './utilities/mixin';
+@import './utilities/partials';
