@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { tokenName } from '../lib/constants';
 
-const authverify = () => {
+const Authverify = () => {
 	const router = useRouter();
 	const { token } = router.query;
 
@@ -26,4 +26,4 @@ const authverify = () => {
 	);
 };
 
-export default authverify;
+export default Authverify;

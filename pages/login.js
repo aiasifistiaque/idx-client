@@ -4,7 +4,7 @@ import Login from '../components/auth/Login';
 import useAuth from '../hooks/useAuth';
 import { tokenName } from '../lib/constants';
 
-const login = () => {
+const Loginpage = () => {
 	//const { token, loading } = useAuth();
 	const router = useRouter();
 
@@ -19,4 +19,4 @@ const login = () => {
 	return <Login />;
 };
 
-export default login;
+export default Loginpage;
