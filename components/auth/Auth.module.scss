@@ -6,11 +6,15 @@
 	max-height: 140vh;
 
 	.img {
-		flex: 4;
-		background-color: whitesmoke;
+		flex: 3;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
+		padding: 128px 0;
+		background-color: whitesmoke;
+		h5 {
+			margin-bottom: 32px;
+		}
 	}
 	.main {
 		flex: 4;

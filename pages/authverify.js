@@ -21,7 +21,7 @@ const Authverify = () => {
 				justifyContent: 'center',
 				height: '100vh',
 			}}>
-			{router.query.token}
+			<h5>Verifying, please wait</h5>
 		</div>
 	);
 };

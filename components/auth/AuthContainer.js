@@ -69,7 +69,9 @@ const AuthContainer = ({ children }) => {
 				{/* <img src='/auth.jpg' alt='auth' /> */}
 				{ip && (
 					<div>
-						<h4>Or, Scan QR to continue</h4>
+						<h5>
+							Or, Login with IDentriX <br /> Scan QR to continue
+						</h5>
 
 						<div>
 							<QRCodeCanvas
@@ -79,7 +81,7 @@ const AuthContainer = ({ children }) => {
 									app: 'IDX',
 								})}
 							/>
-							<p>{ip}</p>
+
 							<br />
 						</div>
 					</div>
